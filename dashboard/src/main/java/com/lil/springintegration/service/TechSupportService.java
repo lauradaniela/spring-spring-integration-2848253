@@ -32,6 +32,8 @@ public class TechSupportService {
 
         // Initialize our updateNotificationChannel
         updateNotificationChannel = (QueueChannel) DashboardManager.getDashboardContext().getBean("updateNotificationQueueChannel");
+        techSupportChannel = (PublishSubscribeChannel) DashboardManager.getDashboardContext().getBean("techSupportChannel");
+        techSupportChannel.subscribe(new TechSupportService.ServiceMessageHandler());
         this.start();
     }
 
