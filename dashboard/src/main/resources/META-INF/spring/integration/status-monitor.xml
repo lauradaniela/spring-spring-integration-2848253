@@ -28,6 +28,10 @@
     <!-- Hint: See here for technical specifications on ServiceActivator -->
     <!-- https://docs.spring.io/spring-integration/reference/html/messaging-endpoints.html#service-activator -->
 
+    <int:service-activator input-channel="statusMonitorChannel"
+                           ref="accountCreditService"
+                           method="creditCustomerAccount" />
+
 
     <!-- Hint: This is the bean you should reference in your service-activator declaration -->
     <beans:bean id="accountCreditService" class="com.lil.springintegration.service.CustomerAccountService" />
